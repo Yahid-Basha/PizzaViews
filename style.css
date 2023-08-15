@@ -1,0 +1,182 @@
+
+/* General styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main frame */
+.mainFrame {
+  /* border: 1px solid black; */
+  width: 500px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(0, 153, 255);
+}
+
+/* Input styles */
+input[type="text"]:focus {
+  outline: none;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  width: 60%;
+  /* margin: 0 auto; */
+}
+
+label {
+  margin: 0 3px;
+} 
+
+.inputs input {
+  border: 1px solid hsl(36, 93%, 55%);
+  border-radius: 5px;
+  height: 20px;
+  width: 200px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+/* Tweet styles */
+.tweetHere {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: auto;
+  
+}
+.tweetHere img {
+  margin-top: 10px;
+  width: 70px;
+  height: 70px;
+}
+
+.tweetHere textarea {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-bottom: 2px solid hsl(36, 93%, 55%);
+  outline: none;
+  resize: none;
+  font-size: 20px;
+}
+
+#tweetInp::placeholder {
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+#tweetBtn {
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: hsl(36, 93%, 55%);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#tweetBtn:hover {
+    background-color: hsl(36, 93%, 45%);
+}
+
+#tweetBtn:active {
+    background-color: hsl(36, 93%, 35%);
+}
+
+.PizzaViews{
+    border-radius: 10px;
+}
+
+/* Pizza views */
+.PizzaView {
+    border-radius: 10px;
+    margin-top: 5px;
+    border: 1px solid rgb(181, 179, 176);
+   
+}
+
+.PizzaView:hover {
+    box-shadow: 0px 0px 20px 0px rgb(181, 179, 176);
+}
+
+.PizzaView {
+    display: flex;
+    gap: 10px;
+    padding: 6px;
+}
+
+
+.View-text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-right: 10px;
+ 
+}
+
+.View-text h3 {
+    color: hsl(36, 93%, 55%);
+    font-weight: 500;
+    margin: 0;
+    padding-bottom: 6px;
+}
+
+.View-text p {
+    padding-bottom: 15px;
+}
+
+.PizzaView img{
+    border-radius: 50%;
+    margin-top: 0px;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.fa-heart, .fa-comment, .fa-retweet, .fa-share{
+    color: gray;
+    cursor: pointer;
+}
+
+.reactions{
+    display: flex;
+    justify-content: space-between;
+}
+.fa-heart:hover{
+    color: red;
+    cursor: pointer;
+}
+.fa-comment:hover{
+    color: blue;
+    cursor: pointer;
+}
+.fa-retweet:hover{
+    color: green;
+    cursor: pointer;
+}
+.fa-share:hover{
+    color: orange;
+    cursor: pointer;
+}

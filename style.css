@@ -1,9 +1,10 @@
 
 /* General styles */
-* {
+body{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: hsl(60, 78%, 81%);
 }
 
 body {
@@ -12,9 +13,12 @@ body {
 
 /* Main frame */
 .mainFrame {
-  /* border: 1px solid black; */
+    /* border: 1px solid black; */
+    background-color: hsl(60, 78%, 81%);
+    border-radius: 6px;
   width: 500px;
   margin: 0 auto;
+  padding: 10px 10px;
 }
 
 /* Logo */
@@ -23,7 +27,7 @@ body {
   text-align: center;
   font-size: 25px;
   font-weight: bold;
-  color: rgb(0, 153, 255);
+  color: hsl(40, 20%, 6%);
 }
 
 /* Input styles */
@@ -51,6 +55,7 @@ label {
   width: 200px;
   margin: 10px 0;
   padding: 10px;
+  font-size: 15px;
 }
 
 /* Tweet styles */
@@ -72,9 +77,10 @@ label {
   width: 100%;
   height: 40px;
   border: none;
+  border-radius: 6px;
   border-bottom: 2px solid hsl(36, 93%, 55%);
+  padding: 7px;
   outline: none;
-  resize: none;
   font-size: 20px;
 }
 
@@ -83,7 +89,7 @@ label {
   padding-top: 10px;
 }
 
-#tweetBtn {
+#postBtn{
   display: block;
   margin: 20px auto;
   width: 200px;
@@ -111,6 +117,7 @@ label {
 
 /* Pizza views */
 .PizzaView {
+    background-color: hsl(34, 91%, 62%);
     border-radius: 10px;
     margin-top: 5px;
     border: 1px solid rgb(181, 179, 176);
@@ -118,7 +125,9 @@ label {
 }
 
 .PizzaView:hover {
-    box-shadow: 0px 0px 20px 0px rgb(181, 179, 176);
+    box-shadow: 0px 0px 20px 0px rgb(242, 173, 70);
+    background-color: aliceblue;
+    border: 1px solid rgb(242, 173, 70);
 }
 
 .PizzaView {
@@ -137,15 +146,12 @@ label {
 }
 
 .View-text h3 {
-    color: hsl(36, 93%, 55%);
+    color: hsl(34, 26%, 95%);
     font-weight: 500;
     margin: 0;
-    padding-bottom: 6px;
 }
 
-.View-text p {
-    padding-bottom: 15px;
-}
+
 
 .PizzaView img{
     border-radius: 50%;
@@ -178,5 +184,9 @@ label {
 }
 .fa-share:hover{
     color: orange;
+    cursor: pointer;
+}
+.fa-trash:hover{
+    color: red;
     cursor: pointer;
 }

@@ -10,7 +10,7 @@ const app = initializeApp(appSettings)
 const db = getDatabase(app)
 
 
-const tweetBtn = document.getElementById('tweetBtn')
+const postBtn = document.getElementById('postBtn')
 const tweetInp = document.getElementById('tweetInp')
 const Views = document.querySelector('.PizzaViews')
 
@@ -35,12 +35,11 @@ let alltweets = []
 // })
 
 document.addEventListener('click', (e) => {
-    console.log(e.target.classList)
-    
     const uuid = e.target.dataset.uuid
     if(e.target.classList.contains('fa-heart')){
         e.target.classList.remove('fa-regular')
         e.target.classList.add('fa-solid')
+
         const likeRef = ref(db,'users/'+uuid+'/likes')
         const likedRef = ref(db,'users/'+uuid+'/liked')
         get(likedRef).then((snapshot) => {
@@ -54,9 +53,10 @@ document.addEventListener('click', (e) => {
         })
     } 
     if(e.target.classList.contains('fa-comment')){
+        e.target.classList.remove('fa-regular')
         e.target.classList.add('fa-solid')
+
         const commentRef = ref(db,'users/'+uuid+'/comments')
-        openCommentBox(uuid)
         get(commentRef).then((snapshot) => {
                 console.log(snapshot.val())
                 set(commentRef, snapshot.val()+1)
@@ -71,25 +71,24 @@ document.addEventListener('click', (e) => {
                 set(retweetRef, snapshot.val()+1)
         })
     }
-    if(e.target.classList.contains('fa-share')){
-        e.target.classList.remove('fa-regular')
-        e.target.classList.add('fa-solid')
-        const shareRef = ref(db,'users/'+uuid+'/shares')
-        get(shareRef).then((snapshot) => {
-                console.log(snapshot.val())
-                set(shareRef, snapshot.val()+1)
-        }
-        )
-    }
+    if(e.target.classList.contains('fa-trash')){
+        const trashRef = ref(db,'users/'+uuid+'userName')
+        const username = document.getElementById('userId').value
+        get(trashRef).then((snapshot) => {
+            if(snapshot.val() == username){
+                const shareRef = ref(db,'users/'+uuid)
+                    remove(shareRef)
+            } else {
+                alert("You can't delete this post")
+            }
+    })
+}
 })
 
 let tweets2 = []
 
-let username = document.getElementById('userId').value
-if(username == ""){
-   username = "Anonymous"
-}
-tweetBtn.addEventListener('click',() => {
+postBtn.addEventListener('click',() => {
+    const username = document.getElementById('userId').value
     push(ref(db, 'users/'), {"pizzaView": tweetInp.value,likes:0,comments:0,retweets:0,shares:0,liked:false, "userName": username})
     tweetInp.value = ""
 
@@ -150,7 +149,7 @@ function addToPage(tweet){
                     ${x.retweets}
                 </span>
                 <span class="tweet-reatction">
-                    <i class="fa fa-delete" data-uuid = "${tweet[0]}"></i>
+                    <i class="fa-regular fa-trash" data-uuid = "${tweet[0]}"></i>
                 </span>
                 </div>
                 <div id="${tweet[0]}>
